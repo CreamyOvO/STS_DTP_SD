@@ -7,6 +7,7 @@ $lokasi = "";
 $id_kategori = 0;
 $deskripsi = "";
 $prioritas = "";
+$laporan = mysqli_query($conn, "SELECT * FROM laporan_kerusakan ORDER BY id_laporan ASC");
 
 if (isset($_POST['submit'])) {
     if (isset($_POST['nama_pelapor']) && isset($_POST['nama_fasilitas']) && isset($_POST['lokasi']) && isset($_POST['id_kategori']) && isset($_POST['deskripsi']) && isset($_POST['prioritas'])) {
@@ -19,9 +20,17 @@ if (isset($_POST['submit'])) {
 
     mysqli_query($conn, "INSERT INTO laporan_kerusakan (nama_pelapor, nama_fasilitas, lokasi, id_kategori, deskripsi, prioritas)
     VALUES ('$nama', '$fasilitas', '$lokasi', $id_kategori, '$deskripsi', '$prioritas');");
+
+    header("Location: index.php");
 }
 }
 
+if (isset($_POST['delete'])) {
+    $id = $_POST['id_lapor'];
+
+    mysqli_query($conn, "DELETE FROM laporan_kerusakan WHERE id_laporan = '$id'");
+    header ("Location: index.php");
+}
 
 ?>
 
@@ -110,7 +119,7 @@ if (isset($_POST['submit'])) {
                         </select>
                     </p>
 
-                    <p><button type="submit" class="rounded-xl p-3 mt-5 bg-green-600 font-semibold text-white" name="submit">Kirim Laporan</button></p>
+                    <p><button type="submit" class="rounded-xl p-3 mt-5 bg-green-600 font-semibold text-white cursor-pointer hover:bg-green-800 transition-all" name="submit">Kirim Laporan</button></p>
                 </fieldset>
             </form>
             <p><small>Catatan: tombol Kirim Laporan belum menyimpan apa pun. Fitur Create merupakan tantangan bonus.</small></p>
@@ -126,9 +135,7 @@ if (isset($_POST['submit'])) {
                  3. Ganti baris placeholder pada tbody dengan perulangan hasil query.
                  4. Jangan mengetik data database secara manual di HTML.
             -->
-                 <?php 
-                 $laporan = mysqli_query($conn, "SELECT * FROM laporan_kerusakan");
-                 ?>
+
             <table class="border-collapse border-spacing-5 border border-black overflow-x-scroll">
                 <thead>
                     <tr>
@@ -139,6 +146,7 @@ if (isset($_POST['submit'])) {
                         <th scope="col" class="border border-black p-3">Prioritas</th>
                         <th scope="col" class="border border-black p-3">Status</th>
                         <th scope="col" class="border border-black p-3">Tanggal</th>
+                        <th scope="col" class="border border-black p-3">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -153,6 +161,12 @@ if (isset($_POST['submit'])) {
                         <td class="border border-black p-3"><?= $data['prioritas'] ?></td>
                         <td class="border border-black p-3"><?= $data['status'] ?></td>
                         <td class="border border-black p-3"><?= $data['tanggal_laporan'] ?></td>
+                        <td class="border border-black p-3">
+                            <form action="index.php" method="post">
+                                <input type="hidden" value="<?= $data['id_laporan'] ?>" name="id_lapor">
+                                <button class="rounded p-1 font-semibold text-red-500 cursor-pointer hover:text-red-800 hover:bg-red-100 transition-all" name="delete" id="delete" type="submit">Hapus</button>
+                            </form>
+                        </td>
                     </tr>
                     <?php 
                     };
