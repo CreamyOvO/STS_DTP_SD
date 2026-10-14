@@ -128,13 +128,13 @@ if (isset($_POST['submit'])) {
             <table class="border-collapse border-spacing-5 border border-black">
                 <thead>
                     <tr>
-                        <th scope="col" class="border border-black">No.</th>
-                        <th scope="col" class="border border-black">Fasilitas</th>
-                        <th scope="col" class="border border-black">Lokasi</th>
-                        <th scope="col" class="border border-black">Pelapor</th>
-                        <th scope="col" class="border border-black">Prioritas</th>
-                        <th scope="col" class="border border-black">Status</th>
-                        <th scope="col" class="border border-black">Tanggal</th>
+                        <th scope="col" class="border border-black p-3">No.</th>
+                        <th scope="col" class="border border-black p-3">Fasilitas</th>
+                        <th scope="col" class="border border-black p-3">Lokasi</th>
+                        <th scope="col" class="border border-black p-3">Pelapor</th>
+                        <th scope="col" class="border border-black p-3">Prioritas</th>
+                        <th scope="col" class="border border-black p-3">Status</th>
+                        <th scope="col" class="border border-black p-3">Tanggal</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -142,13 +142,13 @@ if (isset($_POST['submit'])) {
                     while ($data = mysqli_fetch_assoc($laporan)) {
                     ?>
                     <tr>
-                        <td class="border border-black"><?= $data['id_laporan'] ?></td>
-                        <td class="border border-black"><?= $data['nama_fasilitas'] ?></td>
-                        <td class="border border-black"><?= $data['lokasi'] ?></td>
-                        <td class="border border-black"><?= $data['nama_pelapor'] ?></td>
-                        <td class="border border-black"><?= $data['prioritas'] ?></td>
-                        <td class="border border-black"><?= $data['status'] ?></td>
-                        <td class="border border-black"><?= $data['tanggal_laporan'] ?></td>
+                        <td class="border border-black p-3"><?= $data['id_laporan'] ?></td>
+                        <td class="border border-black p-3"><?= $data['nama_fasilitas'] ?></td>
+                        <td class="border border-black p-3"><?= $data['lokasi'] ?></td>
+                        <td class="border border-black p-3"><?= $data['nama_pelapor'] ?></td>
+                        <td class="border border-black p-3"><?= $data['prioritas'] ?></td>
+                        <td class="border border-black p-3"><?= $data['status'] ?></td>
+                        <td class="border border-black p-3"><?= $data['tanggal_laporan'] ?></td>
                     </tr>
                     <?php 
                     };
