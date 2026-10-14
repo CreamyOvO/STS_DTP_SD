@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 
     <main class="p-6 bg-white rounded-xl">
         <section id="form-laporan" aria-labelledby="judul-form">
-            <h2 id="judul-form" class="text-xl font-semibold">Form Pelaporan Kerusakan</h2>
+            <h2 id="judul-form" class="text-3xl font-semibold">Form Pelaporan Kerusakan</h2>
             <p class="mb-12">Lengkapi data berikut untuk melaporkan fasilitas yang rusak.</p>
 
             <!-- TANTANGAN BONUS CREATE: Buat proses PHP agar POST menyimpan data. -->
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                         <label for="id_kategori">Kategori fasilitas :</label>
                         <br>
                         <select id="id_kategori" name="id_kategori" required class="border rounded p-1">
-                            <option value="">-- Pilih kategori --</option>
+                            <option value="" selected disabled>-- Pilih kategori --</option>
                             <!-- Nilai berikut sesuai dengan data awal kategori_fasilitas. -->
                             <option value="1">Elektronik</option>
                             <option value="2">Furnitur</option>
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
                         <label for="prioritas" >Prioritas</label>
                         <br>
                         <select id="prioritas" name="prioritas" required class="border rounded p-1">
-                            <option value="">-- Pilih prioritas --</option>
+                            <option value="" selected disabled>-- Pilih prioritas --</option>
                             <option value="Rendah">Rendah</option>
                             <option value="Sedang">Sedang</option>
                             <option value="Tinggi">Tinggi</option>
