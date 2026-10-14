@@ -18,3 +18,19 @@ nav a {
 nav a:hover {
     transform: scale(1.1);
 }
+
+#nav-mobile {
+    display: none;
+    width: 40px;
+}
+@media screen and (max-width: 730px) {
+    table {
+        font-size: 8px;
+    }
+    #nav-desktop {
+        display: none;
+    }
+    #nav-mobile {
+        display: flex;
+    }
+}

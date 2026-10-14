@@ -39,13 +39,17 @@ if (isset($_POST['submit'])) {
     <!-- Bagian ini merupakan starter HTML. Belum ada koneksi database ataupun query. -->
     <header class="flex flex-row justify-between p-6 items-center text-white">
         <div id="awalan" aria-label="Judul dan Subjudul" class="flex flex-col">
-            <h1 class="text-2xl font-bold">Sistem Pelaporan Kerusakan Fasilitas Sekolah</h1>
-            <p class="text-xl">Catat dan pantau laporan kerusakan fasilitas sekolah.</p>
+            <h1 class="md:text-2xl font-bold sm:text-md">Sistem Pelaporan Kerusakan Fasilitas Sekolah</h1>
+            <p class="md:text-xl sm:text-sm">Catat dan pantau laporan kerusakan fasilitas sekolah.</p>
         </div>
-        <nav aria-label="Navigasi utama" class="flex flex-row gap-10">
+        <nav aria-label="Navigasi utama" class="flex flex-row gap-10" id="nav-desktop">
             <a href="#form-laporan">Buat Laporan</a>
             <a href="#daftar-laporan">Daftar Laporan</a>
         </nav>
+        <nav aria-label="Navigasi utama" class="gap-10" id="nav-mobile">
+            <img src="assets/burger.svg" alt="">
+        </nav>
+
     </header>
 
     <main class="p-6 bg-white rounded-xl">
@@ -125,7 +129,7 @@ if (isset($_POST['submit'])) {
                  <?php 
                  $laporan = mysqli_query($conn, "SELECT * FROM laporan_kerusakan");
                  ?>
-            <table class="border-collapse border-spacing-5 border border-black">
+            <table class="border-collapse border-spacing-5 border border-black overflow-x-scroll">
                 <thead>
                     <tr>
                         <th scope="col" class="border border-black p-3">No.</th>
